@@ -7,316 +7,307 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy: #0d1b2a;
-    --navy-mid: #13263b;
-    --navy-border: #1e3a52;
-    --accent: #5b9bbf;
-    --accent-dim: #3a6e8f;
-    --text: #d4cfc8;
-    --text-muted: #7d8a94;
-    --text-bright: #ede8e0;
+    --bg: #f7f5f1;
+    --bg-card: #f0ede8;
+    --border: #e0dbd3;
+    --accent: #3a6e8f;
+    --accent-light: #e8f0f5;
+    --text: #2a2a2a;
+    --text-mid: #555;
+    --text-muted: #8a8a8a;
     --serif: 'Cormorant Garamond', Georgia, serif;
-    --mono: 'DM Mono', 'Courier New', monospace;
+    --sans: 'Inter', system-ui, sans-serif;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--navy);
+    background: var(--bg);
     color: var(--text);
-    font-family: var(--mono);
-    font-size: 13.5px;
-    font-weight: 300;
-    line-height: 1.75;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
     min-height: 100vh;
   }
 
-  a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-  a:hover { color: var(--text-bright); }
+  a { color: var(--accent); text-decoration: none; transition: opacity 0.15s; }
+  a:hover { opacity: 0.7; }
 
-  /* Layout */
   .page {
-    max-width: 780px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
   /* Header */
   header {
-    padding: 7rem 0 5rem;
-    border-bottom: 1px solid var(--navy-border);
+    padding: 6rem 0 4.5rem;
+    border-bottom: 1px solid var(--border);
   }
 
   .eyebrow {
-    font-family: var(--mono);
     font-size: 11px;
-    letter-spacing: 0.18em;
+    font-weight: 500;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.2rem;
   }
 
   h1 {
     font-family: var(--serif);
-    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-size: clamp(2.8rem, 6vw, 4rem);
     font-weight: 300;
-    color: var(--text-bright);
-    line-height: 1.1;
-    margin-bottom: 1.6rem;
+    color: var(--text);
+    line-height: 1.05;
+    margin-bottom: 1.4rem;
     letter-spacing: -0.01em;
   }
 
   .tagline {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    color: var(--text-muted);
-    line-height: 1.8;
-    max-width: 520px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.75;
+    max-width: 500px;
   }
 
   .header-links {
-    margin-top: 2.4rem;
+    margin-top: 2rem;
     display: flex;
-    gap: 1.8rem;
+    gap: 1.6rem;
     flex-wrap: wrap;
   }
 
   .header-links a {
-    font-size: 11.5px;
-    letter-spacing: 0.08em;
+    font-size: 13px;
+    font-weight: 400;
     color: var(--text-muted);
-    transition: color 0.2s;
     display: flex;
     align-items: center;
-    gap: 0.4em;
+    gap: 0.35em;
+    transition: color 0.15s;
   }
 
-  .header-links a:hover { color: var(--accent); }
+  .header-links a:hover { color: var(--accent); opacity: 1; }
 
   .header-links a::before {
-    content: '→';
-    color: var(--accent);
+    content: '↗';
     font-size: 11px;
+    color: var(--accent);
   }
 
   /* Sections */
   section {
-    padding: 4.5rem 0;
-    border-bottom: 1px solid var(--navy-border);
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border);
   }
 
-  section:last-child { border-bottom: none; }
+  section:last-of-type { border-bottom: none; }
 
   .section-label {
-    font-family: var(--mono);
     font-size: 10.5px;
-    letter-spacing: 0.2em;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--accent-dim);
-    margin-bottom: 2.5rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
   }
 
   /* About */
   .about-text {
     font-family: var(--serif);
-    font-size: 1.18rem;
+    font-size: 1.25rem;
     font-weight: 300;
-    color: var(--text-bright);
-    line-height: 1.85;
-    max-width: 640px;
+    color: var(--text);
+    line-height: 1.9;
+    max-width: 620px;
   }
 
   /* Experience */
-  .experience-list { display: flex; flex-direction: column; gap: 0; }
+  .experience-list { display: flex; flex-direction: column; }
 
   .exp-item {
     display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 0 2rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--navy-border);
-    transition: background 0.2s;
+    grid-template-columns: 150px 1fr;
+    gap: 0 2.5rem;
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--border);
   }
 
-  .exp-item:first-child { border-top: none; }
+  .exp-item:first-child { border-top: none; padding-top: 0; }
 
   .exp-date {
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 400;
     color: var(--text-muted);
-    padding-top: 2px;
-    letter-spacing: 0.04em;
+    padding-top: 3px;
+    letter-spacing: 0.02em;
   }
 
   .exp-role {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    color: var(--text-bright);
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
     margin-bottom: 0.2rem;
   }
 
   .exp-org {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
   }
 
   /* Education */
-  .edu-list { display: flex; flex-direction: column; gap: 1.8rem; }
-
-  .edu-item {}
+  .edu-list { display: flex; flex-direction: column; gap: 1.6rem; }
 
   .edu-degree {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    color: var(--text-bright);
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.15rem;
   }
 
   .edu-field {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
-    margin-top: 0.15rem;
   }
 
   /* Tools */
-  .tools-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-  }
+  .tools-grid { display: flex; flex-direction: column; gap: 0.8rem; }
 
   .tool-row {
     display: grid;
     grid-template-columns: 140px 1fr;
     gap: 1rem;
-    font-size: 12.5px;
+    font-size: 14px;
   }
 
-  .tool-category { color: var(--text-muted); }
+  .tool-category { color: var(--text-muted); font-weight: 400; }
   .tool-items { color: var(--text); }
 
   /* Publications */
-  .pub-list { display: flex; flex-direction: column; gap: 1.6rem; }
-
-  .pub-item {}
+  .pub-list { display: flex; flex-direction: column; gap: 1.8rem; }
 
   .pub-year {
     font-size: 11px;
-    color: var(--accent-dim);
+    font-weight: 500;
+    color: var(--accent);
     letter-spacing: 0.08em;
     margin-bottom: 0.2rem;
   }
 
   .pub-title {
     font-family: var(--serif);
-    font-size: 1rem;
-    color: var(--text-bright);
+    font-size: 1.05rem;
     font-style: italic;
     font-weight: 300;
+    color: var(--text);
     line-height: 1.5;
+    margin-bottom: 0.2rem;
   }
 
   .pub-journal {
-    font-size: 12px;
+    font-size: 12.5px;
     color: var(--text-muted);
-    margin-top: 0.2rem;
   }
 
   .pub-links {
     margin-top: 1.6rem;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
   }
 
   /* Project */
   .project-card {
-    border: 1px solid var(--navy-border);
+    border: 1px solid var(--border);
     padding: 1.6rem 1.8rem;
-    background: var(--navy-mid);
+    background: var(--bg-card);
     transition: border-color 0.2s;
   }
 
-  .project-card:hover { border-color: var(--accent-dim); }
+  .project-card:hover { border-color: var(--accent); }
 
   .project-name {
-    font-family: var(--mono);
-    font-size: 13px;
+    font-size: 13.5px;
+    font-weight: 500;
     color: var(--accent);
+    font-family: 'Courier New', monospace;
     margin-bottom: 0.6rem;
   }
 
   .project-desc {
-    font-family: var(--serif);
-    font-size: 1rem;
-    color: var(--text);
+    font-size: 14px;
+    color: var(--text-mid);
     line-height: 1.7;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
   }
 
   .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .tag {
-    font-size: 10.5px;
-    letter-spacing: 0.06em;
-    color: var(--text-muted);
-    border: 1px solid var(--navy-border);
-    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 3px 10px;
+    border-radius: 2px;
   }
 
   /* Languages */
   .lang-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 3rem;
+    gap: 0.4rem 3rem;
   }
 
-  .lang-item { font-size: 12.5px; }
-  .lang-name { color: var(--text-bright); }
-  .lang-level { color: var(--text-muted); margin-left: 0.5em; }
+  .lang-item { font-size: 14px; }
+  .lang-name { font-weight: 500; color: var(--text); }
+  .lang-level { color: var(--text-muted); margin-left: 0.5em; font-weight: 300; }
 
   /* Footer */
   footer {
-    padding: 3rem 0 4rem;
-    font-size: 11.5px;
+    padding: 2.5rem 0 4rem;
+    font-size: 12.5px;
     color: var(--text-muted);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
-  /* Fade-in animation */
+  /* Animations */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
+    from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  header, section {
-    animation: fadeUp 0.6s ease both;
-  }
-
-  section:nth-child(2) { animation-delay: 0.05s; }
-  section:nth-child(3) { animation-delay: 0.10s; }
-  section:nth-child(4) { animation-delay: 0.15s; }
-  section:nth-child(5) { animation-delay: 0.20s; }
-  section:nth-child(6) { animation-delay: 0.25s; }
-  section:nth-child(7) { animation-delay: 0.30s; }
+  header { animation: fadeUp 0.5s ease both; }
+  section:nth-of-type(1) { animation: fadeUp 0.5s ease 0.05s both; }
+  section:nth-of-type(2) { animation: fadeUp 0.5s ease 0.10s both; }
+  section:nth-of-type(3) { animation: fadeUp 0.5s ease 0.15s both; }
+  section:nth-of-type(4) { animation: fadeUp 0.5s ease 0.20s both; }
+  section:nth-of-type(5) { animation: fadeUp 0.5s ease 0.25s both; }
+  section:nth-of-type(6) { animation: fadeUp 0.5s ease 0.30s both; }
+  section:nth-of-type(7) { animation: fadeUp 0.5s ease 0.35s both; }
 
   @media (max-width: 600px) {
-    .exp-item { grid-template-columns: 1fr; gap: 0.3rem; }
-    .exp-date { font-size: 10.5px; }
-    .tool-row { grid-template-columns: 1fr; gap: 0.2rem; }
-    footer { flex-direction: column; }
+    h1 { font-size: 2.4rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.2rem; }
+    .exp-date { font-size: 11.5px; }
+    .tool-row { grid-template-columns: 1fr; gap: 0.1rem; }
+    footer { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -325,7 +316,7 @@
 
   <header>
     <p class="eyebrow">Physical Oceanographer &amp; Data Specialist</p>
-    <h1>Uggo Ferreira<br>de Pinho</h1>
+    <h1>Uggo Ferreira de Pinho</h1>
     <p class="tagline">
       Senior Engineer at the Institute of Marine Research (IMR), Bergen, Norway.<br>
       20+ years across research, offshore industry, and national data infrastructure.
@@ -342,7 +333,7 @@
   <section>
     <p class="section-label">About</p>
     <p class="about-text">
-      I work at the intersection of oceanographic science and software engineering processing observational datasets, building data pipelines, and developing tools that make ocean data findable, usable, and lasting. My background spans scientific programming, oceanographic instrumentation, data quality control, and environmental data management, with applied experience in both offshore industry and academic research settings.
+      I work at the intersection of oceanographic science and software engineering — processing observational datasets, building data pipelines, and developing tools that make ocean data findable, usable, and lasting. My background spans scientific programming, oceanographic instrumentation, data quality control, and environmental data management, with applied experience in both offshore industry and academic research settings.
     </p>
   </section>
 
