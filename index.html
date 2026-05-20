@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uggo Ferreira de Pinho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #13263b;
+    --navy-border: #1e3a52;
+    --accent: #5b9bbf;
+    --accent-dim: #3a6e8f;
+    --text: #d4cfc8;
+    --text-muted: #7d8a94;
+    --text-bright: #ede8e0;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --mono: 'DM Mono', 'Courier New', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13.5px;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: var(--text-bright); }
+
+  /* Layout */
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Header */
+  header {
+    padding: 7rem 0 5rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.4rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 300;
+    color: var(--text-bright);
+    line-height: 1.1;
+    margin-bottom: 1.6rem;
+    letter-spacing: -0.01em;
+  }
+
+  .tagline {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  .header-links {
+    margin-top: 2.4rem;
+    display: flex;
+    gap: 1.8rem;
+    flex-wrap: wrap;
+  }
+
+  .header-links a {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .header-links a:hover { color: var(--accent); }
+
+  .header-links a::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 11px;
+  }
+
+  /* Sections */
+  section {
+    padding: 4.5rem 0;
+    border-bottom: 1px solid var(--navy-border);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 2.5rem;
+  }
+
+  /* About */
+  .about-text {
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    font-weight: 300;
+    color: var(--text-bright);
+    line-height: 1.85;
+    max-width: 640px;
+  }
+
+  /* Experience */
+  .experience-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0 2rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--navy-border);
+    transition: background 0.2s;
+  }
+
+  .exp-item:first-child { border-top: none; }
+
+  .exp-date {
+    font-size: 11px;
+    color: var(--text-muted);
+    padding-top: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--text-bright);
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+
+  .exp-org {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Education */
+  .edu-list { display: flex; flex-direction: column; gap: 1.8rem; }
+
+  .edu-item {}
+
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--text-bright);
+    font-weight: 400;
+  }
+
+  .edu-field {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+  }
+
+  /* Tools */
+  .tools-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .tool-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1rem;
+    font-size: 12.5px;
+  }
+
+  .tool-category { color: var(--text-muted); }
+  .tool-items { color: var(--text); }
+
+  /* Publications */
+  .pub-list { display: flex; flex-direction: column; gap: 1.6rem; }
+
+  .pub-item {}
+
+  .pub-year {
+    font-size: 11px;
+    color: var(--accent-dim);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+  }
+
+  .pub-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--text-bright);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .pub-journal {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .pub-links {
+    margin-top: 1.6rem;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* Project */
+  .project-card {
+    border: 1px solid var(--navy-border);
+    padding: 1.6rem 1.8rem;
+    background: var(--navy-mid);
+    transition: border-color 0.2s;
+  }
+
+  .project-card:hover { border-color: var(--accent-dim); }
+
+  .project-name {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .project-desc {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    border: 1px solid var(--navy-border);
+    padding: 2px 8px;
+  }
+
+  /* Languages */
+  .lang-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 3rem;
+  }
+
+  .lang-item { font-size: 12.5px; }
+  .lang-name { color: var(--text-bright); }
+  .lang-level { color: var(--text-muted); margin-left: 0.5em; }
+
+  /* Footer */
+  footer {
+    padding: 3rem 0 4rem;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Fade-in animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  header, section {
+    animation: fadeUp 0.6s ease both;
+  }
+
+  section:nth-child(2) { animation-delay: 0.05s; }
+  section:nth-child(3) { animation-delay: 0.10s; }
+  section:nth-child(4) { animation-delay: 0.15s; }
+  section:nth-child(5) { animation-delay: 0.20s; }
+  section:nth-child(6) { animation-delay: 0.25s; }
+  section:nth-child(7) { animation-delay: 0.30s; }
+
+  @media (max-width: 600px) {
+    .exp-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .exp-date { font-size: 10.5px; }
+    .tool-row { grid-template-columns: 1fr; gap: 0.2rem; }
+    footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <p class="eyebrow">Physical Oceanographer &amp; Data Specialist</p>
+    <h1>Uggo Ferreira<br>de Pinho</h1>
+    <p class="tagline">
+      Senior Engineer at the Institute of Marine Research (IMR), Bergen, Norway.<br>
+      20+ years across research, offshore industry, and national data infrastructure.
+    </p>
+    <nav class="header-links">
+      <a href="https://www.linkedin.com/in/uggo-pinho-138a1a332" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=hisClKQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://orcid.org/0000-0002-5806-6868" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://github.com/uferreira" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:uggopinho@protonmail.com">Email</a>
+    </nav>
+  </header>
+
+  <section>
+    <p class="section-label">About</p>
+    <p class="about-text">
+      I work at the intersection of oceanographic science and software engineering — building data pipelines, processing observational datasets, and developing tools that make ocean data findable, usable, and lasting. My background spans scientific programming, oceanographic instrumentation, quality control, and environmental data management, with applied experience in both offshore and academic research settings.
+    </p>
+  </section>
+
+  <section>
+    <p class="section-label">Experience</p>
+    <div class="experience-list">
+      <div class="exp-item">
+        <span class="exp-date">2025 – present</span>
+        <div>
+          <p class="exp-role">Senior Engineer, Data &amp; Information Management</p>
+          <p class="exp-org">Institute of Marine Research (IMR / NMD) — Bergen, Norway</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <span class="exp-date">2024 – 2025</span>
+        <div>
+          <p class="exp-role">Ocean Physical Data Specialist</p>
+          <p class="exp-org">University of Hawaiʻi at Mānoa — Honolulu, USA</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <span class="exp-date">2020 – 2024</span>
+        <div>
+          <p class="exp-role">Principal Metocean Engineer</p>
+          <p class="exp-org">Equinor ASA — Stavanger, Norway</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <span class="exp-date">2017 – 2020</span>
+        <div>
+          <p class="exp-role">Physical Oceanographer &amp; Programmer</p>
+          <p class="exp-org">University of Hawaiʻi at Mānoa — Honolulu, USA</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <span class="exp-date">2004 – 2017</span>
+        <div>
+          <p class="exp-role">Physical Oceanographer</p>
+          <p class="exp-org">Petrobras — Macaé, Brazil</p>
+        </div>
+      </div>
+      <div class="exp-item">
+        <span class="exp-date">2003 – 2004</span>
+        <div>
+          <p class="exp-role">Scientific Programmer</p>
+          <p class="exp-org">LabOceano / Federal University of Rio de Janeiro — Brazil</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Education</p>
+    <div class="edu-list">
+      <div class="edu-item">
+        <p class="edu-degree">Doctor of Science, Ocean Engineering</p>
+        <p class="edu-field">COPPE / Federal University of Rio de Janeiro — 2015–2018</p>
+      </div>
+      <div class="edu-item">
+        <p class="edu-degree">Master of Science, Ocean Engineering</p>
+        <p class="edu-field">COPPE / Federal University of Rio de Janeiro — 1999–2003</p>
+      </div>
+      <div class="edu-item">
+        <p class="edu-degree">Bachelor of Science, Physical Oceanography</p>
+        <p class="edu-field">Rio de Janeiro State University (UERJ) — 1993–1997</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Tools &amp; Technologies</p>
+    <div class="tools-grid">
+      <div class="tool-row">
+        <span class="tool-category">Languages</span>
+        <span class="tool-items">Python, MATLAB</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-category">Data formats</span>
+        <span class="tool-items">NetCDF (CF), HDF5, Parquet</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-category">Data services</span>
+        <span class="tool-items">THREDDS, ERDDAP, OPeNDAP</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-category">Infrastructure</span>
+        <span class="tool-items">Git, Linux, Azure</span>
+      </div>
+      <div class="tool-row">
+        <span class="tool-category">Standards</span>
+        <span class="tool-items">FAIR data principles, CF Conventions, IOOS / EuroGOOS QC</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Selected Publications</p>
+    <div class="pub-list">
+      <div class="pub-item">
+        <p class="pub-year">2025</p>
+        <p class="pub-title">The Hamiltonian Form of the KdV Equation: Multiperiodic Solutions and Applications to Quantum Mechanics</p>
+        <p class="pub-journal">Osborne, A.R., Pinho, U.F. — Symmetry, 17, 2025</p>
+      </div>
+      <div class="pub-item">
+        <p class="pub-year">2021</p>
+        <p class="pub-title">The turbulent dispersion of surface drifters by water waves: experimental study</p>
+        <p class="pub-journal">Violante-Carvalho et al., Pinho, U.F. — Ocean Dynamics, 71, 379–389</p>
+      </div>
+      <div class="pub-item">
+        <p class="pub-year">2015</p>
+        <p class="pub-title">Emergence of Short-Crestedness in Originally Unidirectional Nonlinear Waves</p>
+        <p class="pub-journal">Pinho, U.F., Babanin, A.V. — Geophysical Research Letters, 42(10)</p>
+      </div>
+      <div class="pub-item">
+        <p class="pub-year">2004</p>
+        <p class="pub-title">Freak Waves at Campos Basin, Brazil</p>
+        <p class="pub-journal">Pinho, U.F., Liu, P.C., Ribeiro, C.E.P. — Geofizika, 21:53–67</p>
+      </div>
+    </div>
+    <p class="pub-links">
+      Full list on <a href="https://scholar.google.com/citations?user=hisClKQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      &nbsp;·&nbsp;
+      <a href="https://orcid.org/0000-0002-5806-6868" target="_blank" rel="noopener">ORCID 0000-0002-5806-6868</a>
+    </p>
+  </section>
+
+  <section>
+    <p class="section-label">Projects</p>
+    <div class="project-card">
+      <p class="project-name">cdip_wave</p>
+      <p class="project-desc">
+        Python package for accessing and processing wave data from the Coastal Data Information Program (CDIP) buoy network. Provides tools for data retrieval, format handling, and analysis of wave spectra and sea state parameters.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Oceanography</span>
+        <span class="tag">Wave data</span>
+        <span class="tag">NetCDF</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-label">Languages</p>
+    <div class="lang-list">
+      <div class="lang-item"><span class="lang-name">Portuguese</span><span class="lang-level">native</span></div>
+      <div class="lang-item"><span class="lang-name">English</span><span class="lang-level">fluent</span></div>
+      <div class="lang-item"><span class="lang-name">Norwegian</span><span class="lang-level">basic (A1)</span></div>
+      <div class="lang-item"><span class="lang-name">Spanish</span><span class="lang-level">working knowledge</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Uggo Ferreira de Pinho · Bergen, Norway</span>
+    <span><a href="mailto:uggopinho@protonmail.com">uggopinho@protonmail.com</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
